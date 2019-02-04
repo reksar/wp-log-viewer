@@ -167,6 +167,7 @@ zip () {
 check_required_commands
 
 if [[ $? -ne 0 ]]; then
+  err "Some required commands are missing."
   exit ${ERR_COMMAND_MISSING}
 fi
 
