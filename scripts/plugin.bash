@@ -1,16 +1,23 @@
 #!/bin/bash
 #
-# Helper script for managing plugin tasks
+# Helper script for managing plugin tasks.
+
+
+readonly PLUGIN_FILES=(
+  "api"
+  "assets"
+  "libs"
+  "autoload.php"
+  "humans.txt"
+  "readme.txt"
+  "wp-log-viewer.php"
+)
 
 
 # Error codes
 readonly ERR_COMMAND_MISSING=30
 readonly ERR_PARAM_MISSING=35
 readonly ERR_VERSION_NOT_DETECTED=40
-
-
-# Variables
-readonly PLUGIN_FILES=("api" "assets" "libs" "autoload.php" "humans.txt" "readme.txt" "wp-log-viewer.php")
 
 
 # Display error message
