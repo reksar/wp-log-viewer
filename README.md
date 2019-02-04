@@ -1,6 +1,6 @@
-# Wordpress Log Viewer
+# [Wordpress](https://wordpress.org) Log Viewer
 
-Easily search, sort and group log entries.  Click the log file with one click.  See new errors automatically without refreshing.
+Easily search, sort and group log entries. Click the log file with one click. See new errors automatically without refreshing.
 
 
 ## Features
@@ -102,6 +102,15 @@ This widget gives you a quick summary regarding how many and what type of errors
 ### Persistent Settings
 
 Customize your log viewer to your heart's content.  Your settings such as view, sort order, sidebar folding and more persist accross logins.  When you login as your user, log viewer will be just like you left it.
+
+
+## For developers
+
+### Getting the Wordpress plugin
+
+Running the `scripts/plugin.bash zip` gives a plugin zip, that can be installed into Wordpress.
+
+See `PLUGIN_FILES` constant at the top of `plugin.bash` file.
 
 
 # Change Log
