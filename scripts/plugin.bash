@@ -148,16 +148,17 @@ release () {
 }
 
 
-# Creates a zip of plugin files.  This zip can then be used to install the plugin in Wordpress.
+# Creates a zip of plugin files.
+# This zip can then be used to install the plugin into Wordpress.
 #
 # @params
-# $1 - The destination directory for the zip file
+# $1 - The destination directory for the zip file.
 zip () {
   local DEST=".."
   local ZIP="$(which zip)"
   local FILENAME="${PWD##*/}.zip"
 
-  ${ZIP} -qr ${DEST}/${FILENAME} ${PLUGIN_FILES[@]}
+  ${ZIP} -r ${DEST}/${FILENAME} ${PLUGIN_FILES[@]}
 
   return 0
 }
