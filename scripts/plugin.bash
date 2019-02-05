@@ -100,7 +100,8 @@ bump_version () {
 }
 
 
-# Release copies the latest files to svn trunk, create new tag if needed, get latest from repo, add new files, then checks in changes
+# Release copies the latest files to svn trunk, create new tag if needed,
+# get latest from repo, add new files, then checks in changes.
 release () {
   local FILE
   local SRC
