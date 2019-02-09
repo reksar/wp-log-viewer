@@ -1,7 +1,7 @@
 // Dependencies
 var $			= require('gulp-load-plugins')();
 var Gulp		= require('gulp');
-var Jeet		= require('Jeet');
+var Jeet		= require('jeet');
 var Rupture		= require('rupture');
 
 
