@@ -1,16 +1,23 @@
 #!/bin/bash
 #
-# Helper script for managing plugin tasks
+# Helper script for managing plugin tasks.
+
+
+readonly PLUGIN_FILES=(
+  "api"
+  "assets"
+  "libs"
+  "autoload.php"
+  "humans.txt"
+  "readme.txt"
+  "wp-log-viewer.php"
+)
 
 
 # Error codes
 readonly ERR_COMMAND_MISSING=30
 readonly ERR_PARAM_MISSING=35
 readonly ERR_VERSION_NOT_DETECTED=40
-
-
-# Variables
-readonly PLUGIN_FILES=("api" "assets" "libs" "autoload.php" "humans.txt" "readme.txt" "wp-log-viewer.php")
 
 
 # Display error message
@@ -25,7 +32,7 @@ err () {
 # Check if required commands are installed
 check_required_commands () {
   local COMMAND
-  local COMMANDS=("rsync" "zip")
+  local COMMANDS=("rsync" "zip" "aza")
   local MISSING=()
 
   for COMMAND in ${COMMANDS[@]}; do
@@ -93,7 +100,8 @@ bump_version () {
 }
 
 
-# Release copies the latest files to svn trunk, create new tag if needed, get latest from repo, add new files, then checks in changes
+# Release copies the latest files to svn trunk, create new tag if needed,
+# get latest from repo, add new files, then checks in changes.
 release () {
   local FILE
   local SRC
@@ -148,16 +156,17 @@ release () {
 }
 
 
-# Creates a zip of plugin files.  This zip can then be used to install the plugin in Wordpress.
+# Creates a zip of plugin files.
+# This zip can then be used to install the plugin into Wordpress.
 #
 # @params
-# $1 - The destination directory for the zip file
+# $1 - The destination directory for the zip file.
 zip () {
   local DEST=".."
   local ZIP="$(which zip)"
   local FILENAME="${PWD##*/}.zip"
 
-  ${ZIP} -qr ${DEST}/${FILENAME} ${PLUGIN_FILES[@]}
+  ${ZIP} -r ${DEST}/${FILENAME} ${PLUGIN_FILES[@]}
 
   return 0
 }
