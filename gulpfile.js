@@ -1,8 +1,8 @@
 // Dependencies
 var $			= require('gulp-load-plugins')();
-var Gulp		= require('gulp');
-var Jeet		= require('jeet');
-var Rupture		= require('rupture');
+var gulp		= require('gulp');
+var jeet		= require('jeet');
+var rupture		= require('rupture');
 
 
 // Paths
@@ -53,53 +53,53 @@ function isJSX(file) {
 
 
 // Default Task
-Gulp.task('default', ['css', 'fonts', 'images', 'js']);
+gulp.task('default', ['css', 'fonts', 'images', 'js']);
 
 
 // Watch
-Gulp.task('watch', function() {
-	Gulp.watch('src/css/**/*', ['css']);
-	Gulp.watch(paths.src.img, ['images']);
-	Gulp.watch(paths.src.js, ['js']);
+gulp.task('watch', function() {
+	gulp.watch('src/css/**/*', ['css']);
+	gulp.watch(paths.src.img, ['images']);
+	gulp.watch(paths.src.js, ['js']);
 });
 
 
 // Process all stylus files
-Gulp.task('css', function() {
-	return Gulp.src(paths.src.css)
+gulp.task('css', function() {
+	return gulp.src(paths.src.css)
 		.pipe($.plumber())
 		.pipe($.stylus({
-			use: [Jeet(), Rupture()],
+			use: [jeet(), rupture()],
 			'include css': true
 		}))
 		.pipe($.autoprefixer())
 		.pipe($.csso())
 		.pipe($.concat('main.min.css'))
-		.pipe(Gulp.dest(paths.build.css));
+		.pipe(gulp.dest(paths.build.css));
 });
 
 
 // Copy fonts
-Gulp.task('fonts', function() {
-	return Gulp.src(paths.src.fonts)
-		.pipe(Gulp.dest(paths.build.fonts));
+gulp.task('fonts', function() {
+	return gulp.src(paths.src.fonts)
+		.pipe(gulp.dest(paths.build.fonts));
 });
 
 
 // Process all image files
-Gulp.task('images', function() {
-	return Gulp.src(paths.src.img)
+gulp.task('images', function() {
+	return gulp.src(paths.src.img)
 		.pipe($.plumber())
-		.pipe(Gulp.dest(paths.build.img));
+		.pipe(gulp.dest(paths.build.img));
 });
 
 
 // Process all javascript files
-Gulp.task('js', function() {
-	return Gulp.src(paths.src.js)
+gulp.task('js', function() {
+	return gulp.src(paths.src.js)
 		.pipe($.plumber())
 		.pipe($.if(isJSX, $.react()))
 		.pipe($.concat('main.min.js'))
 		.pipe($.uglify())
-		.pipe(Gulp.dest(paths.build.js));
+		.pipe(gulp.dest(paths.build.js));
 });
