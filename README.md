@@ -106,11 +106,26 @@ Customize your log viewer to your heart's content.  Your settings such as view, 
 
 ## For developers
 
+All shell commands, listed in this section, must be run from project root dir.
+
+
 ### Getting the Wordpress plugin
 
 Running the `scripts/plugin.bash zip` gives a plugin zip, that can be installed into Wordpress.
 
 See `PLUGIN_FILES` constant at the top of `plugin.bash` file.
+
+
+### Building Frontend
+
+Building frontend from `src` into the `assets`.
+
+```bash
+# Install dependencies
+npm i
+# Execute default task from gulpfile.js
+npx gulp
+```
 
 
 # Change Log
