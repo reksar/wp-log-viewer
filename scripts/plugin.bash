@@ -32,7 +32,7 @@ err () {
 # Check if required commands are installed
 check_required_commands () {
   local COMMAND
-  local COMMANDS=("rsync" "zip" "aza")
+  local COMMANDS=("rsync" "zip")
   local MISSING=()
 
   for COMMAND in ${COMMANDS[@]}; do
