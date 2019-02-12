@@ -1,9 +1,15 @@
 /* TEAM */
+
 Name: Maxwell Berkel
 Title: Lead Developer
 Github: allbitsnbytes
 Twitter: allbitsnbytes
 
+Name: REKSAR DSV
+Github: https://github.com/reksar
+
+
 /* META */
-Updated: 01-31-2016
+
+Updated: 02-12-2019
 See: http://humanstxt.org/
